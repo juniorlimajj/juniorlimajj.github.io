@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de produto — o que vender nas licitações de TI municipal</title>
+<meta name="description" content="Plano de produto e ação para vender sistemas nas licitações municipais.">
+<meta name="color-scheme" content="light dark">
+<style>
+  :root {
+    --bg: #fbfbfa; --fg: #17181a; --muted: #5f6672; --line: #e4e2dd;
+    --surface: #ffffff; --accent: #1a56db; --accent-soft: #eef3ff;
+    --code: #f3f2ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121316; --fg: #eceded; --muted: #a2a8b3; --line: #2a2d33;
+      --surface: #191b1f; --accent: #7aa2ff; --accent-soft: #1c2433;
+      --code: #22252b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding-bottom: 64px;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+  header.hero {
+    background: linear-gradient(160deg, var(--accent-soft), var(--bg) 70%);
+    border-bottom: 1px solid var(--line);
+    padding: 40px 0 28px;
+  }
+  .kicker {
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin: 0 0 10px;
+  }
+  header.hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 12px; letter-spacing: -.02em; }
+  header.hero p { color: var(--muted); margin: 0; font-size: 16px; }
+  .badge {
+    display: inline-block; margin-top: 16px; padding: 5px 12px; border: 1px solid var(--line);
+    border-radius: 999px; font-size: 13px; color: var(--muted); background: var(--surface);
+  }
+  .toc {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 6px 18px; margin: 28px 0; font-size: 15px;
+  }
+  .toc summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
+  .toc ul { margin: 4px 0 14px; padding-left: 22px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: var(--fg); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover { border-color: var(--accent); }
+  article h2 {
+    font-size: 25px; line-height: 1.25; margin: 44px 0 14px; letter-spacing: -.01em;
+    padding-top: 18px; border-top: 1px solid var(--line);
+  }
+  article h3 { font-size: 19px; margin: 30px 0 10px; }
+  article p, article li { color: var(--fg); }
+  article ul, article ol { padding-left: 22px; }
+  article li { margin: 6px 0; }
+  article strong { font-weight: 650; }
+  article a { color: var(--accent); }
+  article code {
+    background: var(--code); padding: 2px 6px; border-radius: 6px;
+    font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tabela { overflow-x: auto; margin: 18px -20px; padding: 0 20px; -webkit-overflow-scrolling: touch; }
+  table {
+    border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 520px;
+  }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--accent-soft); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+  tr:last-child td { border-bottom: 0; }
+  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--fg) 3%, transparent); }
+  footer {
+    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 13.5px;
+  }
+  @media (max-width: 520px) {
+    header.hero h1 { font-size: 27px; }
+    article h2 { font-size: 22px; }
+    body { font-size: 16px; }
+  }
+  @media print {
+    header.hero { background: none; }
+    .toc { display: none; }
+    .tabela { overflow: visible; }
+    article h2 { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Licitações de TI municipal</p>
+    <h1>Plano de produto — o que vender nas licitações de TI municipal</h1>
+    <p>Base: 38 editais abertos em 27/11/2026 (PDFs lidos e minerados) + 3.636 sites de prefeitura +
+contagem de editais abertos no PNCP por tema. Valores são <code>valor_total_estimado</code> do PNCP.</p>
+    <span class="badge">Atualizado em 27/11/2026</span>
+  </div>
+</header>
+<main class="wrap">
+  <details class="toc" open>
+    <summary>Nesta página</summary>
+    <ul><li><a href="#1-o-que-os-editais-realmente-pedem">1. O que os editais realmente pedem</a></li><li><a href="#2-estrategia-uma-plataforma-quatro-produtos">2. Estratégia: uma plataforma, quatro produtos</a></li><li><a href="#3-os-sistemas-que-valem-construir">3. Os sistemas que valem construir</a></li><li><a href="#4-matriz-de-decisao">4. Matriz de decisão</a></li><li><a href="#5-requisitos-transversais-checklist-de-engenharia">5. Requisitos transversais (checklist de engenharia)</a></li><li><a href="#6-plano-de-acao-180-dias">6. Plano de ação (180 dias)</a></li><li><a href="#7-equipe-e-custo-de-construcao">7. Equipe e custo de construção</a></li><li><a href="#8-riscos-que-decidem-o-jogo">8. Riscos que decidem o jogo</a></li><li><a href="#9-precos-observados-nos-editais-analisados">9. Preços observados nos editais analisados</a></li></ul>
+  </details>
+  <article>
+    
+<h2 id="1-o-que-os-editais-realmente-pedem">1. O que os editais realmente pedem</h2>
+<h3 id="11-forma-de-contratacao-dominante">1.1 Forma de contratação dominante</h3>
+<p>Locação de software em SaaS, com escopo fixo de serviços em volta:
+<strong>implantação + parametrização + migração de dados + treinamento + suporte/manutenção + atualização</strong>.
+Quase nenhum edital compra "desenvolvimento sob demanda"; compram <strong>assinatura de sistema pronto</strong>
+(ou "locação de software"), com SLA e glosa. Isso define o modelo: produto multi-tenant, não fábrica de software.</p>
+<h3 id="12-modulos-citados-textualmente-nos-editais">1.2 Módulos citados textualmente nos editais</h3>
+<div class="tabela"><table>
+<thead>
+<tr>
+<th>Edital</th>
+<th>Módulos exigidos no termo de referência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Riachuelo/SE — SUAS (R$ 230.607)</td>
+<td>abordagem social, agendamento, benefícios eventuais, encaminhamentos, proteção social especial, medidas socioeducativas, plano individual de acompanhamento (PIA), registro de atendimentos individual/coletivo, registro de visitas, RMA</td>
+</tr>
+<tr>
+<td>Fraiburgo/SC — Saúde (R$ 2,07 mi)</td>
+<td>módulos de laboratório de análises clínicas, gestão da saúde, frota do ERP e GED; o texto cita ainda prontuário, agenda, farmácia, estoque, biometria, app e WhatsApp</td>
+</tr>
+<tr>
+<td>Porto Seguro/BA — RH/patrimônio (2× R$ 171.250)</td>
+<td>patrimônio, recursos humanos e folha de pagamento, transmissão ao eSocial</td>
+</tr>
+<tr>
+<td>Águas Lindas/GO — ERP (R$ 3,71 mi)</td>
+<td>almoxarifado, aplicativo móvel, arrecadação, assistência social, cobrança, compras e licitações, contabilidade</td>
+</tr>
+<tr>
+<td>Oliveira/MG — gestão (R$ 661.889 e R$ 662.939)</td>
+<td>locação de licença de uso de sistema integrado (escopo amplo, sem módulos fechados)</td>
+</tr>
+<tr>
+<td>Jussara/PR — RPPS (R$ 131.467)</td>
+<td>gestão previdenciária: segurados, arrecadação, benefícios, folha, relatórios</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="13-demanda-aberta-por-tema-pncp-hoje-editais-com-proposta-aberta">1.3 Demanda aberta por tema (PNCP hoje, editais com proposta aberta)</h3>
+<div class="tabela"><table>
+<thead>
+<tr>
+<th>Termo</th>
+<th style="text-align: right;">Editais abertos (todas as esferas)</th>
+<th style="text-align: right;">Em prefeitura (Executivo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assistência social</td>
+<td style="text-align: right;">1.391</td>
+<td style="text-align: right;">238</td>
+</tr>
+<tr>
+<td>frota</td>
+<td style="text-align: right;">1.280</td>
+<td style="text-align: right;">69</td>
+</tr>
+<tr>
+<td>transporte escolar</td>
+<td style="text-align: right;">866</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr>
+<td>protocolo</td>
+<td style="text-align: right;">605</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr>
+<td>patrimônio</td>
+<td style="text-align: right;">471</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr>
+<td>tributos</td>
+<td style="text-align: right;">378</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr>
+<td>almoxarifado</td>
+<td style="text-align: right;">272</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr>
+<td>merenda</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td>prontuário</td>
+<td style="text-align: right;">157</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr>
+<td>portal da transparência</td>
+<td style="text-align: right;">134</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr>
+<td>ouvidoria</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>RPPS</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table></div>
+<p>Leitura: "assistência social", "frota" e "transporte escolar" puxam muito volume, mas parte é serviço/insumo,
+não software. Os temas com maior fração de software são <strong>assistência social, protocolo, patrimônio,
+almoxarifado, portal/transparência e RPPS</strong>.</p>
+<h3 id="14-requisitos-que-aparecem-em-quase-todo-edital">1.4 Requisitos que aparecem em quase todo edital</h3>
+<ul>
+<li>Qualificação técnica por <strong>atestado de capacidade técnica</strong> (30/47 documentos) — barreira de entrada real.</li>
+<li><strong>SLA com glosa</strong> (ex.: até 10% do valor mensal do módulo afetado) e disponibilidade 99,5%.</li>
+<li><strong>LGPD</strong> como cláusula contratual (controlador = prefeitura, fornecedor = operador).</li>
+<li><strong>Migração de dados</strong> obrigatória, inclusive de fornecedor incumbente.</li>
+<li><strong>Treinamento</strong> de usuários e documentação (manual, vídeo, trilha).</li>
+<li><strong>Multi-tenant</strong>, log de auditoria, backup e controle de acesso.</li>
+<li><strong>Assinatura eletrônica</strong> e integração com serviços federais conforme o domínio (eSocial, e-SUS/SISAB, CadÚnico).</li>
+<li>Acessibilidade digital quando há portal/site (eMAG/WCAG).</li>
+</ul>
+<h2 id="2-estrategia-uma-plataforma-quatro-produtos">2. Estratégia: uma plataforma, quatro produtos</h2>
+<p>Construir <strong>um núcleo</strong> (autenticação, multi-tenant, auditoria, GED, assinatura, notificações, relatórios, PWA)
+e vender <strong>pacotes de módulos</strong> por secretaria. Sem isso, cada produto vira uma base de código e você não
+consegue manter 4 sistemas sozinho.</p>
+<p>Núcleo (comum a todos): login gov.br + login local, RBAC por secretaria, trilha de auditoria imutável,
+armazenamento de arquivos com versionamento, assinatura eletrônica, notificações (e-mail/WhatsApp),
+motor de relatórios (PDF/CSV), API REST, backup diário, painel de SLA, acessibilidade AA, PWA.</p>
+<h2 id="3-os-sistemas-que-valem-construir">3. Os sistemas que valem construir</h2>
+<h3 id="produto-a-suas-gestao-da-assistencia-social">Produto A — SUAS / Gestão da Assistência Social</h3>
+<p><strong>Por quê:</strong> 238 editais abertos citam assistência social; Riachuelo/SE paga R$ 230.607 para 8,8 mil
+habitantes (~R$ 26/hab) e o TR lista os módulos por escrito. Concorrência forte (Betha, IPM, Fiorilli),
+mas o edital de Riachuelo exige apenas atestado de "sistema web/SaaS de gestão pública" — porta aberta
+para entrante.</p>
+<p><strong>Módulos</strong>
+1. Cadastro de famílias e pessoas (NIS, vínculo familiar, CadÚnico como referência; consulta quando houver convênio).
+2. Prontuário SUAS: evolução, plano de acompanhamento, histórico por família.
+3. CRAS/PAIF: acolhida, oficinas, grupos, encaminhamentos para rede.
+4. CREAS/PAEFI: medidas socioeducativas, violência, acompanhamento especializado.
+5. Abordagem social e registro de visitas domiciliares (app offline para campo).
+6. Benefícios eventuais: solicitação, parecer, concessão, entrega, prestação de contas.
+7. PIA (plano individual de acompanhamento) com metas e prazos.
+8. Agenda de atendimentos e fila por unidade/técnico.
+9. RMA — Registro Mensal de Atendimentos, com validação e exportação.
+10. Vigilância socioassistencial: painéis por território, série histórica, mapas.
+11. Portal do cidadão: consulta de benefício e agendamento.
+12. Relatórios para MDS/TCE e plano de ação.</p>
+<p><strong>Integrações:</strong> CadÚnico (consulta), gov.br, assinatura eletrônica, exportação RMA.
+<strong>Esforço:</strong> 14–18 semanas (2 devs + 1 assistente social como consultor de domínio).
+<strong>Risco:</strong> médio. <strong>Ticket:</strong> R$ 130–260 mil/ano para 5–40 mil hab.</p>
+<h3 id="produto-b-saude-aps-prontuario-agenda-farmacia">Produto B — Saúde APS (prontuário + agenda + farmácia)</h3>
+<p><strong>Por quê:</strong> Fraiburgo lista 8 módulos; 17 editais abertos de prontuário em prefeituras; tickets altos.
+<strong>É o produto de maior receita e maior risco</strong>: certificação, dados sensíveis, integração e-SUS/PEC,
+faturamento SUS e auditoria de enfermagem exigem domínio clínico.</p>
+<p><strong>Módulos</strong>
+1. Cadastro de pacientes e famílias (CNS, equipe, microárea).
+2. Agenda por equipe/profissional, com confirmação por WhatsApp.
+3. Prontuário eletrônico (SOAP), prescrição, atestados, encaminhamentos.
+4. Odontologia (odontograma) e procedimentos SIGTAP.
+5. Farmácia: dispensação, lote/validade, estoque, inventário.
+6. Laboratório: coleta, resultados, integração com LIS.
+7. Vacinação, visitas de ACS, territorialização.
+8. Faturamento SUS: BPA/SIGTAP, produção, consistência.
+9. Relatórios: SISAB, indicadores Previne Brasil, produção por equipe.
+10. App do cidadão e teleorientação (opcional).
+11. Auditoria de prontuário (quem leu, quando, o quê).</p>
+<p><strong>Integrações:</strong> e-SUS PEC (exportação/importação), SISAB, RNDS (se for além da APS), gov.br.
+<strong>Esforço:</strong> 20–26 semanas (2–3 devs + enfermeiro/consultor).
+<strong>Risco:</strong> alto. <strong>Ticket:</strong> R$ 160 mil–2 mi/ano.</p>
+<h3 id="produto-c-erp-municipal-enxuto-patrimonio-almoxarifado-frota-compras">Produto C — ERP municipal enxuto (patrimônio, almoxarifado, frota, compras)</h3>
+<p><strong>Por quê:</strong> Porto Seguro (patrimônio + RH + eSocial) e Águas Lindas (almoxarifado + compras + arrecadação)
+mostram a demanda; 27 + 31 + 69 editais abertos citam patrimônio, almoxarifado e frota.
+<strong>Não construir contabilidade</strong> — é onde os incumbentes e as regras de TCE mandam. Integre com o sistema
+contábil que a prefeitura já tem.</p>
+<p><strong>Módulos</strong>
+1. Patrimônio: tombamento, ficha do bem, depreciação, inventário por leitor/planilha, termo de responsabilidade, transferência, baixa e alienação.
+2. Almoxarifado: requisição, autorização, entrada/saída, estoque mínimo, curva ABC, inventário.
+3. Compras e licitações: demanda, pesquisa de preço, edital/dispensa, ata de registro de preços, contrato, fiscalização, prazos.
+4. Frota: veículos, km, abastecimento, manutenção preventiva, ordens de serviço, multas, motoristas.
+5. GED acoplado: digitalização de processos e contratos com assinatura.
+6. Painéis: custo por secretaria, consumo por unidade, alertas de vencimento.</p>
+<p><strong>Integrações:</strong> sistema contábil (exportação), eSocial (se incluir RH), TCE (prestação de contas).
+<strong>Esforço:</strong> 16–20 semanas (2 devs).
+<strong>Risco:</strong> baixo/médio. <strong>Ticket:</strong> R$ 170–660 mil/ano.</p>
+<h3 id="produto-d-portal-transparencia-protocoloouvidoria-o-mais-rapido-de-vender">Produto D — Portal + Transparência + Protocolo/Ouvidoria (o mais rápido de vender)</h3>
+<p><strong>Por quê:</strong> 62 editais abertos citam protocolo, 18 citam portal da transparência, 8 ouvidoria; Mogi das Cruzes
+paga R$ 64.420 por redesign/manutenção de portal. 1.454 dos 3.636 sites municipais mapeados têm portal de
+transparência — muitos são links quebrados ou de fornecedor antigo. É o produto que gera <strong>atestado</strong> rápido
+e serve de porta de entrada para os outros.</p>
+<p><strong>Módulos</strong>
+1. Site institucional (CMS): notícias, secretarias, serviços, agenda, banners, acessibilidade eMAG/WCAG AA.
+2. Portal da transparência: receitas, despesas, licitações, contratos, aditivos, servidores, diárias, obras, emendas.
+3. Dados abertos: CSV/JSON + API pública documentada.
+4. e-SIC (Lei 12.527) com prazos, recurso e relatório anual.
+5. Ouvidoria: protocolo, anonimato, categorias, prazos, painel de demandas.
+6. Protocolo eletrônico: abertura, autuação, tramitação entre setores, despacho, assinatura, consulta pública.
+7. Busca unificada e acessibilidade (leitor de tela, contraste, teclado).</p>
+<p><strong>Esforço:</strong> 8–12 semanas (1–2 devs).
+<strong>Risco:</strong> baixo. <strong>Ticket:</strong> R$ 20–70 mil/ano.</p>
+<h3 id="produto-e-opcional-rpps-previdencia-municipal">Produto E (opcional) — RPPS / Previdência municipal</h3>
+<p>22 editais abertos em prefeituras; Jussara paga R$ 131.467 para 6,8 mil habitantes.
+Módulos: segurados, tempo de contribuição, arrecadação, benefícios, folha de pagamento do RPPS, censo
+previdenciário, comprovação de vida, relatórios ao MPS.
+<strong>Esforço:</strong> 10–12 semanas. <strong>Risco:</strong> médio (regras previdenciárias mudam). <strong>Ticket:</strong> R$ 60–150 mil/ano.
+Bom como segundo produto de nicho, depois do D.</p>
+<h2 id="4-matriz-de-decisao">4. Matriz de decisão</h2>
+<div class="tabela"><table>
+<thead>
+<tr>
+<th>Produto</th>
+<th>Demanda</th>
+<th>Ticket</th>
+<th>Esforço</th>
+<th>Risco</th>
+<th>Reuso do núcleo</th>
+<th>Recomendação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D — Portal/Transparência/Protocolo</td>
+<td>alta</td>
+<td>baixo</td>
+<td>baixo</td>
+<td>baixo</td>
+<td>alto</td>
+<td><strong>primeiro</strong> (caixa + atestado)</td>
+</tr>
+<tr>
+<td>C — ERP enxuto</td>
+<td>alta</td>
+<td>médio</td>
+<td>médio</td>
+<td>baixo</td>
+<td>alto</td>
+<td><strong>segundo</strong> (receita recorrente)</td>
+</tr>
+<tr>
+<td>A — SUAS</td>
+<td>média/alta</td>
+<td>médio</td>
+<td>médio</td>
+<td>médio</td>
+<td>alto</td>
+<td><strong>terceiro</strong> (melhor margem)</td>
+</tr>
+<tr>
+<td>B — Saúde APS</td>
+<td>alta</td>
+<td>alto</td>
+<td>alto</td>
+<td>alto</td>
+<td>médio</td>
+<td>só com sócio clínico</td>
+</tr>
+<tr>
+<td>E — RPPS</td>
+<td>baixa/média</td>
+<td>médio</td>
+<td>médio</td>
+<td>médio</td>
+<td>médio</td>
+<td>opcional</td>
+</tr>
+</tbody>
+</table></div>
+<p>Regra prática: <strong>D + C</strong> cobrem a maior parte dos editais de software que uma prefeitura pequena abre
+(portal, transparência, protocolo, patrimônio, almoxarifado, frota, compras) com um único núcleo, e geram
+atestados que habilitam você em A e B depois.</p>
+<h2 id="5-requisitos-transversais-checklist-de-engenharia">5. Requisitos transversais (checklist de engenharia)</h2>
+<p><strong>Arquitetura</strong></p>
+<ul>
+<li>Multi-tenant com isolamento lógico por <code>tenant_id</code> + RLS no Postgres.</li>
+<li>API REST versionada, OpenAPI publicado; webhooks para integrações.</li>
+<li>Fila para jobs assíncronos (relatórios, exportações, e-mail/WhatsApp).</li>
+<li>Postgres + storage de objetos; nenhum dado em planilha como fonte de verdade.</li>
+<li>Observabilidade: logs estruturados, métricas de disponibilidade, alerta de erro.</li>
+<li>Backup diário automático com teste de restore mensal; RPO 24h, RTO 8h.</li>
+</ul>
+<p><strong>Segurança e LGPD</strong></p>
+<ul>
+<li>Criptografia em trânsito (TLS 1.2+) e em repouso; segregação por tenant.</li>
+<li>Trilha de auditoria imutável (quem, o quê, quando, IP) e exportável.</li>
+<li>Papéis: cidadão, técnico, gestor, administrador; permissão por módulo e unidade.</li>
+<li>DPA/contrato de operador, encarregado (DPO), política de retenção e descarte.</li>
+<li>Hospedagem em território nacional (ou cláusula de transferência internacional).</li>
+<li>2FA para perfis administrativos; bloqueio por inatividade.</li>
+</ul>
+<p><strong>Acessibilidade e usabilidade</strong></p>
+<ul>
+<li>eMAG/WCAG 2.1 AA nas páginas públicas; contraste, navegação por teclado, leitor de tela.</li>
+<li>PWA com modo offline para visitas domiciliares e fiscalização em campo.</li>
+</ul>
+<p><strong>Operação</strong></p>
+<ul>
+<li>SLA 99,5% com painel público de status; glosa contratual mapeada por módulo.</li>
+<li>Suporte N1/N2 com prazo de resposta (ex.: 4h úteis), base de conhecimento e tickets.</li>
+<li>Onboarding: importador de planilhas do fornecedor anterior + validação com a prefeitura.</li>
+</ul>
+<p><strong>Comercial e jurídico</strong></p>
+<ul>
+<li>CNAE 6202-3/00 (desenvolvimento e licenciamento de software) e 6201-5/01 (consultoria).</li>
+<li>SICAF ativo, certidões federais/estaduais/municipais, FGTS, trabalhista.</li>
+<li>Modelo de proposta técnica + planilha de custos por módulo + catálogo de serviços.</li>
+<li>Minuta de contrato com SLA, glosa, LGPD, reversibilidade e exportação de dados.</li>
+<li><strong>Atestado de capacidade técnica</strong>: só se obtém executando. Primeiro contrato pode ser de valor baixo
+  (dispensa por valor) ou subcontratação com atestado do parceiro — planeje isso antes de disputar A/B.</li>
+</ul>
+<h2 id="6-plano-de-acao-180-dias">6. Plano de ação (180 dias)</h2>
+<h3 id="fase-0-validacao-e-habilitacao-semanas-13">Fase 0 — validação e habilitação (semanas 1–3)</h3>
+<ol>
+<li>Baixar e ler os 5 TRs mais próximos do produto escolhido; extrair requisitos em checklist.</li>
+<li>Falar com 5 prefeituras da sua região (secretário de administração e TI) para validar dor e preço.</li>
+<li>Abrir/ajustar CNAE, SICAF, certidões; definir preço por faixa populacional.</li>
+<li>Escolher entre D+C (recomendado) ou D+A.
+<strong>Entrega:</strong> planilha de requisitos, 5 entrevistas, empresa habilitada a licitar.</li>
+</ol>
+<h3 id="fase-1-nucleo-produto-d-semanas-412">Fase 1 — núcleo + Produto D (semanas 4–12)</h3>
+<ol>
+<li>Núcleo: auth, tenants, RBAC, auditoria, storage, notificações, relatórios, PWA.</li>
+<li>Portal + transparência + e-SIC + ouvidoria + protocolo.</li>
+<li>Piloto com 1 prefeitura (contrato de baixo valor ou cessão de uso em troca de atestado).</li>
+<li>Documentação: manual, vídeos, plano de implantação, proposta técnica padrão.
+<strong>Entrega:</strong> produto em produção, 1 atestado, 1 case.</li>
+</ol>
+<h3 id="fase-2-produto-c-semanas-1326">Fase 2 — Produto C (semanas 13–26)</h3>
+<ol>
+<li>Patrimônio e almoxarifado (maior demanda imediata).</li>
+<li>Frota e compras/licitações.</li>
+<li>Importadores (planilhas e exportação do sistema anterior).</li>
+<li>Segunda prefeitura piloto; ajustar contrato e SLA com base no uso real.
+<strong>Entrega:</strong> 2–3 contratos ativos, receita recorrente previsível.</li>
+</ol>
+<h3 id="fase-3-produto-a-semanas-2744">Fase 3 — Produto A (semanas 27–44)</h3>
+<ol>
+<li>Contratar consultor de assistência social (10–20h/semana).</li>
+<li>Prontuário SUAS + CRAS/CREAS + benefícios + RMA.</li>
+<li>App offline para campo.</li>
+<li>Disputar 3 editais de SUAS (modelo: Riachuelo/SE).
+<strong>Entrega:</strong> 1 contrato SUAS, produto validado por quem opera.</li>
+</ol>
+<h3 id="fase-4-decisao-sobre-b-saude">Fase 4 — decisão sobre B (saúde)</h3>
+<p>Só entra com sócio clínico ou parceria de licenciamento. Sem isso, o custo de certificação e suporte
+consome a margem.</p>
+<h2 id="7-equipe-e-custo-de-construcao">7. Equipe e custo de construção</h2>
+<div class="tabela"><table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Equipe mínima</th>
+<th>Duração</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Núcleo + D</td>
+<td>1 dev sênior full-stack + 0,5 designer</td>
+<td>9 semanas</td>
+<td>você faz o comercial</td>
+</tr>
+<tr>
+<td>C</td>
+<td>1 dev sênior + 1 dev pleno</td>
+<td>14 semanas</td>
+<td>importadores consomem 1/3</td>
+</tr>
+<tr>
+<td>A</td>
+<td>1 dev sênior + 1 pleno + consultor SUAS</td>
+<td>18 semanas</td>
+<td>consultor é obrigatório</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sem equipe: escolha <strong>D</strong> e venda; cada contrato financia o próximo módulo.</p>
+<h2 id="8-riscos-que-decidem-o-jogo">8. Riscos que decidem o jogo</h2>
+<ol>
+<li><strong>Migração de dados do incumbente</strong> — o fornecedor anterior não entrega base organizada. Reserve 30% do prazo de implantação para isso e cobre por escopo.</li>
+<li><strong>Atestado</strong> — sem ele você é inabilitado. Resolva com contrato pequeno/piloto antes de disputar ticket alto.</li>
+<li><strong>Glosa de SLA</strong> — precifique suporte; 10% do módulo por mês zera margem em contrato mal dimensionado.</li>
+<li><strong>Concorrência instalada</strong> (Betha, IPM, Fiorilli, Atende) — eles têm contrato antigo e relação política. Entre por módulo que eles cobram caro ou entregam mal (transparência, protocolo, frota).</li>
+<li><strong>Lock-in regulatório</strong> — contabilidade e folha têm regras de TCE; não reinvente. Integre.</li>
+</ol>
+<h2 id="9-precos-observados-nos-editais-analisados">9. Preços observados nos editais analisados</h2>
+<div class="tabela"><table>
+<thead>
+<tr>
+<th>Cidade</th>
+<th style="text-align: right;">População</th>
+<th>Objeto</th>
+<th style="text-align: right;">Valor estimado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Riachuelo/SE</td>
+<td style="text-align: right;">8.832</td>
+<td>SUAS em SaaS, com implantação, migração, treinamento e suporte</td>
+<td style="text-align: right;">R$ 230.607</td>
+</tr>
+<tr>
+<td>Jussara/PR</td>
+<td style="text-align: right;">6.791</td>
+<td>Software de gestão previdenciária (RPPS)</td>
+<td style="text-align: right;">R$ 131.467</td>
+</tr>
+<tr>
+<td>Açailândia/MA</td>
+<td style="text-align: right;">110.703</td>
+<td>Sistema informatizado integrado (saúde)</td>
+<td style="text-align: right;">R$ 163.733</td>
+</tr>
+<tr>
+<td>Nova Veneza/SC</td>
+<td style="text-align: right;">14.042</td>
+<td>TIC para licença de uso (saúde)</td>
+<td style="text-align: right;">R$ 273.065</td>
+</tr>
+<tr>
+<td>Porto Seguro/BA</td>
+<td style="text-align: right;">184.087</td>
+<td>Locação de software de gestão pública (2 lotes)</td>
+<td style="text-align: right;">R$ 171.250 cada</td>
+</tr>
+<tr>
+<td>Oliveira/MG</td>
+<td style="text-align: right;">40.599</td>
+<td>Licença de uso de sistema integrado</td>
+<td style="text-align: right;">R$ 661.889 / R$ 662.939</td>
+</tr>
+<tr>
+<td>Mogi das Cruzes/SP</td>
+<td style="text-align: right;">472.255</td>
+<td>Redesign e manutenção de portal</td>
+<td style="text-align: right;">R$ 64.420</td>
+</tr>
+<tr>
+<td>Águas Lindas/GO</td>
+<td style="text-align: right;">249.978</td>
+<td>Locação de software integrado (ERP)</td>
+<td style="text-align: right;">R$ 3.710.933</td>
+</tr>
+<tr>
+<td>Fraiburgo/SC</td>
+<td style="text-align: right;">33.969</td>
+<td>SaaS de saúde (múltiplos módulos)</td>
+<td style="text-align: right;">R$ 2.074.079</td>
+</tr>
+</tbody>
+</table></div>
+<p>Faixas práticas para proposta: pequeno porte (&lt;20 mil hab.) R$ 1,50–4,00 por habitante/ano por módulo;
+médio (20–100 mil) R$ 1,00–2,50; grande (&gt;100 mil) contrato por escopo, não por habitante.</p>
+  </article>
+  <footer>
+    Fontes: 38 editais abertos no PNCP (PDFs baixados), 3.636 sites municipais e contagem de editais por tema.
+    Documento de trabalho — valores estimados, confira o termo de referência antes de decidir.
+  </footer>
+</main>
+</body>
+</html>
