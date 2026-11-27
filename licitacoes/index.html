@@ -2,120 +2,141 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Plano de produto — o que vender nas licitações de TI municipal</title>
 <meta name="description" content="Plano de produto e ação para vender sistemas nas licitações municipais.">
+<meta name="theme-color" content="#2f5bea">
 <meta name="color-scheme" content="light dark">
 <style>
-  :root {
-    --bg: #fbfbfa; --fg: #17181a; --muted: #5f6672; --line: #e4e2dd;
-    --surface: #ffffff; --accent: #1a56db; --accent-soft: #eef3ff;
-    --code: #f3f2ef;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #121316; --fg: #eceded; --muted: #a2a8b3; --line: #2a2d33;
-      --surface: #191b1f; --accent: #7aa2ff; --accent-soft: #1c2433;
-      --code: #22252b;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 17px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    padding-bottom: 64px;
-  }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px; }
-  header.hero {
-    background: linear-gradient(160deg, var(--accent-soft), var(--bg) 70%);
-    border-bottom: 1px solid var(--line);
-    padding: 40px 0 28px;
-  }
-  .kicker {
-    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--accent); font-weight: 700; margin: 0 0 10px;
-  }
-  header.hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 12px; letter-spacing: -.02em; }
-  header.hero p { color: var(--muted); margin: 0; font-size: 16px; }
-  .badge {
-    display: inline-block; margin-top: 16px; padding: 5px 12px; border: 1px solid var(--line);
-    border-radius: 999px; font-size: 13px; color: var(--muted); background: var(--surface);
-  }
-  .toc {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 6px 18px; margin: 28px 0; font-size: 15px;
-  }
-  .toc summary { cursor: pointer; font-weight: 600; padding: 10px 0; }
-  .toc ul { margin: 4px 0 14px; padding-left: 22px; }
-  .toc li { margin: 6px 0; }
-  .toc a { color: var(--fg); text-decoration: none; border-bottom: 1px solid transparent; }
-  .toc a:hover { border-color: var(--accent); }
-  article h2 {
-    font-size: 25px; line-height: 1.25; margin: 44px 0 14px; letter-spacing: -.01em;
-    padding-top: 18px; border-top: 1px solid var(--line);
-  }
-  article h3 { font-size: 19px; margin: 30px 0 10px; }
-  article p, article li { color: var(--fg); }
-  article ul, article ol { padding-left: 22px; }
-  article li { margin: 6px 0; }
-  article strong { font-weight: 650; }
-  article a { color: var(--accent); }
-  article code {
-    background: var(--code); padding: 2px 6px; border-radius: 6px;
-    font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  .tabela { overflow-x: auto; margin: 18px -20px; padding: 0 20px; -webkit-overflow-scrolling: touch; }
-  table {
-    border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--surface);
-    border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 520px;
-  }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { background: var(--accent-soft); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
-  tr:last-child td { border-bottom: 0; }
-  tbody tr:nth-child(even) { background: color-mix(in srgb, var(--fg) 3%, transparent); }
-  footer {
-    margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line);
-    color: var(--muted); font-size: 13.5px;
-  }
-  @media (max-width: 520px) {
-    header.hero h1 { font-size: 27px; }
-    article h2 { font-size: 22px; }
-    body { font-size: 16px; }
-  }
-  @media print {
-    header.hero { background: none; }
-    .toc { display: none; }
-    .tabela { overflow: visible; }
-    article h2 { page-break-after: avoid; }
-  }
+:root{
+  --bg:#f7f7f5;--fg:#14161a;--muted:#5c6370;--line:#e6e3dc;
+  --surface:#fff;--surface-2:#fbfaf8;
+  --accent:#2f5bea;--accent-2:#7c3aed;--accent-soft:#eef2ff;
+  --shadow:0 1px 2px rgba(20,22,26,.04),0 8px 24px rgba(20,22,26,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1013;--fg:#e9eaec;--muted:#9aa1ad;--line:#242830;
+    --surface:#15181d;--surface-2:#111419;--accent:#7ea2ff;--accent-2:#b794ff;--accent-soft:#1a2130;
+    --shadow:0 1px 2px rgba(0,0,0,.45),0 12px 32px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:17px/1.68 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-feature-settings:"kern","liga";padding-bottom:56px;overflow-x:hidden}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+header.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);padding:44px 0 34px;
+  background:
+    radial-gradient(900px 380px at 12% -12%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 62%),
+    radial-gradient(700px 340px at 92% 0%,color-mix(in srgb,var(--accent-2) 20%,transparent),transparent 60%),
+    var(--bg)}
+header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:34px 34px;
+  -webkit-mask-image:radial-gradient(60% 60% at 50% 20%,#000,transparent);
+  mask-image:radial-gradient(60% 60% at 50% 20%,#000,transparent)}
+.hero-inner{position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border-radius:999px;
+  background:color-mix(in srgb,var(--surface) 82%,transparent);border:1px solid var(--line);
+  font-size:12.5px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.ico{width:18px;height:18px;flex:none}
+.ico-lg{width:22px;height:22px}
+h1{font-size:clamp(28px,6.4vw,44px);line-height:1.1;letter-spacing:-.025em;margin:16px 0 14px;font-weight:800}
+.lead{color:var(--muted);font-size:16.5px;margin:0 0 22px;max-width:62ch}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px}
+.stat{background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);
+  border-radius:14px;padding:12px 14px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:clamp(18px,4.4vw,24px);letter-spacing:-.02em;line-height:1.15}
+.stat span{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+nav.toc{display:grid;gap:8px;margin:26px auto 8px}
+nav.toc a{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--fg);
+  background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 14px;
+  font-size:15px;line-height:1.35;box-shadow:var(--shadow);transition:transform .12s,border-color .12s}
+nav.toc a:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+nav.toc .num{font:700 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--accent);
+  background:var(--accent-soft);padding:6px 7px;border-radius:8px}
+article{margin-top:26px}
+article h2{display:flex;gap:12px;align-items:center;font-size:clamp(21px,4.6vw,27px);line-height:1.22;
+  letter-spacing:-.02em;margin:52px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+.sec-ico{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:11px;
+  background:var(--accent-soft);color:var(--accent)}
+article h3{font-size:19px;margin:30px 0 10px;letter-spacing:-.01em}
+article h3.prod{display:flex;gap:12px;align-items:center;font-size:19.5px;
+  background:linear-gradient(120deg,var(--surface),var(--surface-2));border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:13px;padding:13px 16px;margin:36px 0 12px;
+  box-shadow:var(--shadow);color:var(--fg)}
+article h3.prod .ico{color:var(--accent);flex:none}
+article ul,article ol{padding-left:22px}
+article li{margin:7px 0}
+article li::marker{color:color-mix(in srgb,var(--accent) 70%,var(--muted))}
+article strong{font-weight:680}
+article em{color:var(--muted)}
+article a{color:var(--accent);text-underline-offset:2px}
+article code{background:color-mix(in srgb,var(--fg) 7%,transparent);padding:2px 6px;border-radius:6px;
+  font:14px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}
+.tbl{position:relative}
+.hint{display:none}
+.tabela{margin:18px -20px;padding:0 20px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;overscroll-behavior-x:contain}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:560px;font-size:14.5px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow)}
+th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-soft);font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+  color:color-mix(in srgb,var(--fg) 80%,var(--accent));white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--fg) 2.5%,transparent)}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+footer{margin-top:64px;padding:22px 0 0;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.top{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:14px;
+  border:1px solid var(--line);background:var(--surface);color:var(--fg);display:grid;place-items:center;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40;cursor:pointer}
+.top.show{opacity:1;pointer-events:auto}
+@media (max-width:560px){
+  body{font-size:16px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:last-child{grid-column:span 2}
+  .tabela{margin:16px -14px;padding:0 14px}
+  table{min-width:520px;font-size:13.5px}
+  th,td{padding:9px 10px}
+  .hint{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 6px 2px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{
+  .progress,.top,nav.toc{display:none}
+  header.hero{background:none}
+  .tabela{overflow:visible}
+  table{box-shadow:none;min-width:0}
+  article h2{page-break-after:avoid}
+}
 </style>
 </head>
 <body>
-<header class="hero">
-  <div class="wrap">
-    <p class="kicker">Licitações de TI municipal</p>
-    <h1>Plano de produto — o que vender nas licitações de TI municipal</h1>
-    <p>Base: 38 editais abertos em 27/11/2026 (PDFs lidos e minerados) + 3.636 sites de prefeitura +
-contagem de editais abertos no PNCP por tema. Valores são <code>valor_total_estimado</code> do PNCP.</p>
-    <span class="badge">Atualizado em 27/11/2026</span>
+<div class="progress" aria-hidden="true"></div>
+<header class="hero"><div class="wrap hero-inner">
+  <span class="pill"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg> Plano de produto</span>
+  <h1>Plano de produto — o que vender nas licitações de TI municipal</h1>
+  <p class="lead">Base: 38 editais abertos em 27/11/2026 (PDFs lidos e minerados) + 3.636 sites de prefeitura +
+contagem de editais abertos no PNCP por tema. Valores são valor_total_estimado do PNCP.</p>
+  <div class="stats">
+    <div class="stat"><b>38</b><span>editais abertos analisados</span></div>
+    <div class="stat"><b>3.636</b><span>sites de prefeitura varridos</span></div>
+    <div class="stat"><b>27/11</b><span>data da análise</span></div>
   </div>
-</header>
+</div></header>
 <main class="wrap">
-  <details class="toc" open>
-    <summary>Nesta página</summary>
-    <ul><li><a href="#1-o-que-os-editais-realmente-pedem">1. O que os editais realmente pedem</a></li><li><a href="#2-estrategia-uma-plataforma-quatro-produtos">2. Estratégia: uma plataforma, quatro produtos</a></li><li><a href="#3-os-sistemas-que-valem-construir">3. Os sistemas que valem construir</a></li><li><a href="#4-matriz-de-decisao">4. Matriz de decisão</a></li><li><a href="#5-requisitos-transversais-checklist-de-engenharia">5. Requisitos transversais (checklist de engenharia)</a></li><li><a href="#6-plano-de-acao-180-dias">6. Plano de ação (180 dias)</a></li><li><a href="#7-equipe-e-custo-de-construcao">7. Equipe e custo de construção</a></li><li><a href="#8-riscos-que-decidem-o-jogo">8. Riscos que decidem o jogo</a></li><li><a href="#9-precos-observados-nos-editais-analisados">9. Preços observados nos editais analisados</a></li></ul>
-  </details>
+  <nav class="toc" aria-label="Índice"><a href="#1-o-que-os-editais-realmente-pedem"><span class="num">01</span><span>O que os editais realmente pedem</span></a><a href="#2-estrategia-uma-plataforma-quatro-produtos"><span class="num">02</span><span>Estratégia: uma plataforma, quatro produtos</span></a><a href="#3-os-sistemas-que-valem-construir"><span class="num">03</span><span>Os sistemas que valem construir</span></a><a href="#4-matriz-de-decisao"><span class="num">04</span><span>Matriz de decisão</span></a><a href="#5-requisitos-transversais-checklist-de-engenharia"><span class="num">05</span><span>Requisitos transversais (checklist de engenharia)</span></a><a href="#6-plano-de-acao-180-dias"><span class="num">06</span><span>Plano de ação (180 dias)</span></a><a href="#7-equipe-e-custo-de-construcao"><span class="num">07</span><span>Equipe e custo de construção</span></a><a href="#8-riscos-que-decidem-o-jogo"><span class="num">08</span><span>Riscos que decidem o jogo</span></a><a href="#9-precos-observados-nos-editais-analisados"><span class="num">09</span><span>Preços observados nos editais analisados</span></a></nav>
   <article>
-    
-<h2 id="1-o-que-os-editais-realmente-pedem">1. O que os editais realmente pedem</h2>
+<h2 id="1-o-que-os-editais-realmente-pedem"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span>1. O que os editais realmente pedem</span></h2>
 <h3 id="11-forma-de-contratacao-dominante">1.1 Forma de contratação dominante</h3>
 <p>Locação de software em SaaS, com escopo fixo de serviços em volta:
 <strong>implantação + parametrização + migração de dados + treinamento + suporte/manutenção + atualização</strong>.
 Quase nenhum edital compra "desenvolvimento sob demanda"; compram <strong>assinatura de sistema pronto</strong>
 (ou "locação de software"), com SLA e glosa. Isso define o modelo: produto multi-tenant, não fábrica de software.</p>
 <h3 id="12-modulos-citados-textualmente-nos-editais">1.2 Módulos citados textualmente nos editais</h3>
-<div class="tabela"><table>
+<div class="tbl"><span class="hint">deslize para ver mais →</span><div class="tabela" role="region" tabindex="0" aria-label="Tabela"><table>
 <thead>
 <tr>
 <th>Edital</th>
@@ -148,9 +169,9 @@ Quase nenhum edital compra "desenvolvimento sob demanda"; compram <strong>assina
 <td>gestão previdenciária: segurados, arrecadação, benefícios, folha, relatórios</td>
 </tr>
 </tbody>
-</table></div>
+</table></div></div>
 <h3 id="13-demanda-aberta-por-tema-pncp-hoje-editais-com-proposta-aberta">1.3 Demanda aberta por tema (PNCP hoje, editais com proposta aberta)</h3>
-<div class="tabela"><table>
+<div class="tbl"><span class="hint">deslize para ver mais →</span><div class="tabela" role="region" tabindex="0" aria-label="Tabela"><table>
 <thead>
 <tr>
 <th>Termo</th>
@@ -220,7 +241,7 @@ Quase nenhum edital compra "desenvolvimento sob demanda"; compram <strong>assina
 <td style="text-align: right;">22</td>
 </tr>
 </tbody>
-</table></div>
+</table></div></div>
 <p>Leitura: "assistência social", "frota" e "transporte escolar" puxam muito volume, mas parte é serviço/insumo,
 não software. Os temas com maior fração de software são <strong>assistência social, protocolo, patrimônio,
 almoxarifado, portal/transparência e RPPS</strong>.</p>
@@ -235,92 +256,100 @@ almoxarifado, portal/transparência e RPPS</strong>.</p>
 <li><strong>Assinatura eletrônica</strong> e integração com serviços federais conforme o domínio (eSocial, e-SUS/SISAB, CadÚnico).</li>
 <li>Acessibilidade digital quando há portal/site (eMAG/WCAG).</li>
 </ul>
-<h2 id="2-estrategia-uma-plataforma-quatro-produtos">2. Estratégia: uma plataforma, quatro produtos</h2>
+<h2 id="2-estrategia-uma-plataforma-quatro-produtos"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span>2. Estratégia: uma plataforma, quatro produtos</span></h2>
 <p>Construir <strong>um núcleo</strong> (autenticação, multi-tenant, auditoria, GED, assinatura, notificações, relatórios, PWA)
 e vender <strong>pacotes de módulos</strong> por secretaria. Sem isso, cada produto vira uma base de código e você não
 consegue manter 4 sistemas sozinho.</p>
 <p>Núcleo (comum a todos): login gov.br + login local, RBAC por secretaria, trilha de auditoria imutável,
 armazenamento de arquivos com versionamento, assinatura eletrônica, notificações (e-mail/WhatsApp),
 motor de relatórios (PDF/CSV), API REST, backup diário, painel de SLA, acessibilidade AA, PWA.</p>
-<h2 id="3-os-sistemas-que-valem-construir">3. Os sistemas que valem construir</h2>
-<h3 id="produto-a-suas-gestao-da-assistencia-social">Produto A — SUAS / Gestão da Assistência Social</h3>
+<h2 id="3-os-sistemas-que-valem-construir"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span><span>3. Os sistemas que valem construir</span></h2>
+<h3 id="produto-a-suas-gestao-da-assistencia-social" class="prod"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>Produto A — SUAS / Gestão da Assistência Social</span></h3>
 <p><strong>Por quê:</strong> 238 editais abertos citam assistência social; Riachuelo/SE paga R$ 230.607 para 8,8 mil
 habitantes (~R$ 26/hab) e o TR lista os módulos por escrito. Concorrência forte (Betha, IPM, Fiorilli),
 mas o edital de Riachuelo exige apenas atestado de "sistema web/SaaS de gestão pública" — porta aberta
 para entrante.</p>
-<p><strong>Módulos</strong>
-1. Cadastro de famílias e pessoas (NIS, vínculo familiar, CadÚnico como referência; consulta quando houver convênio).
-2. Prontuário SUAS: evolução, plano de acompanhamento, histórico por família.
-3. CRAS/PAIF: acolhida, oficinas, grupos, encaminhamentos para rede.
-4. CREAS/PAEFI: medidas socioeducativas, violência, acompanhamento especializado.
-5. Abordagem social e registro de visitas domiciliares (app offline para campo).
-6. Benefícios eventuais: solicitação, parecer, concessão, entrega, prestação de contas.
-7. PIA (plano individual de acompanhamento) com metas e prazos.
-8. Agenda de atendimentos e fila por unidade/técnico.
-9. RMA — Registro Mensal de Atendimentos, com validação e exportação.
-10. Vigilância socioassistencial: painéis por território, série histórica, mapas.
-11. Portal do cidadão: consulta de benefício e agendamento.
-12. Relatórios para MDS/TCE e plano de ação.</p>
+<p><strong>Módulos</strong></p>
+<ol>
+<li>Cadastro de famílias e pessoas (NIS, vínculo familiar, CadÚnico como referência; consulta quando houver convênio).</li>
+<li>Prontuário SUAS: evolução, plano de acompanhamento, histórico por família.</li>
+<li>CRAS/PAIF: acolhida, oficinas, grupos, encaminhamentos para rede.</li>
+<li>CREAS/PAEFI: medidas socioeducativas, violência, acompanhamento especializado.</li>
+<li>Abordagem social e registro de visitas domiciliares (app offline para campo).</li>
+<li>Benefícios eventuais: solicitação, parecer, concessão, entrega, prestação de contas.</li>
+<li>PIA (plano individual de acompanhamento) com metas e prazos.</li>
+<li>Agenda de atendimentos e fila por unidade/técnico.</li>
+<li>RMA — Registro Mensal de Atendimentos, com validação e exportação.</li>
+<li>Vigilância socioassistencial: painéis por território, série histórica, mapas.</li>
+<li>Portal do cidadão: consulta de benefício e agendamento.</li>
+<li>Relatórios para MDS/TCE e plano de ação.</li>
+</ol>
 <p><strong>Integrações:</strong> CadÚnico (consulta), gov.br, assinatura eletrônica, exportação RMA.
 <strong>Esforço:</strong> 14–18 semanas (2 devs + 1 assistente social como consultor de domínio).
 <strong>Risco:</strong> médio. <strong>Ticket:</strong> R$ 130–260 mil/ano para 5–40 mil hab.</p>
-<h3 id="produto-b-saude-aps-prontuario-agenda-farmacia">Produto B — Saúde APS (prontuário + agenda + farmácia)</h3>
+<h3 id="produto-b-saude-aps-prontuario-agenda-farmacia" class="prod"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>Produto B — Saúde APS (prontuário + agenda + farmácia)</span></h3>
 <p><strong>Por quê:</strong> Fraiburgo lista 8 módulos; 17 editais abertos de prontuário em prefeituras; tickets altos.
 <strong>É o produto de maior receita e maior risco</strong>: certificação, dados sensíveis, integração e-SUS/PEC,
 faturamento SUS e auditoria de enfermagem exigem domínio clínico.</p>
-<p><strong>Módulos</strong>
-1. Cadastro de pacientes e famílias (CNS, equipe, microárea).
-2. Agenda por equipe/profissional, com confirmação por WhatsApp.
-3. Prontuário eletrônico (SOAP), prescrição, atestados, encaminhamentos.
-4. Odontologia (odontograma) e procedimentos SIGTAP.
-5. Farmácia: dispensação, lote/validade, estoque, inventário.
-6. Laboratório: coleta, resultados, integração com LIS.
-7. Vacinação, visitas de ACS, territorialização.
-8. Faturamento SUS: BPA/SIGTAP, produção, consistência.
-9. Relatórios: SISAB, indicadores Previne Brasil, produção por equipe.
-10. App do cidadão e teleorientação (opcional).
-11. Auditoria de prontuário (quem leu, quando, o quê).</p>
+<p><strong>Módulos</strong></p>
+<ol>
+<li>Cadastro de pacientes e famílias (CNS, equipe, microárea).</li>
+<li>Agenda por equipe/profissional, com confirmação por WhatsApp.</li>
+<li>Prontuário eletrônico (SOAP), prescrição, atestados, encaminhamentos.</li>
+<li>Odontologia (odontograma) e procedimentos SIGTAP.</li>
+<li>Farmácia: dispensação, lote/validade, estoque, inventário.</li>
+<li>Laboratório: coleta, resultados, integração com LIS.</li>
+<li>Vacinação, visitas de ACS, territorialização.</li>
+<li>Faturamento SUS: BPA/SIGTAP, produção, consistência.</li>
+<li>Relatórios: SISAB, indicadores Previne Brasil, produção por equipe.</li>
+<li>App do cidadão e teleorientação (opcional).</li>
+<li>Auditoria de prontuário (quem leu, quando, o quê).</li>
+</ol>
 <p><strong>Integrações:</strong> e-SUS PEC (exportação/importação), SISAB, RNDS (se for além da APS), gov.br.
 <strong>Esforço:</strong> 20–26 semanas (2–3 devs + enfermeiro/consultor).
 <strong>Risco:</strong> alto. <strong>Ticket:</strong> R$ 160 mil–2 mi/ano.</p>
-<h3 id="produto-c-erp-municipal-enxuto-patrimonio-almoxarifado-frota-compras">Produto C — ERP municipal enxuto (patrimônio, almoxarifado, frota, compras)</h3>
+<h3 id="produto-c-erp-municipal-enxuto-patrimonio-almoxarifado-frota-compras" class="prod"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><span>Produto C — ERP municipal enxuto (patrimônio, almoxarifado, frota, compras)</span></h3>
 <p><strong>Por quê:</strong> Porto Seguro (patrimônio + RH + eSocial) e Águas Lindas (almoxarifado + compras + arrecadação)
 mostram a demanda; 27 + 31 + 69 editais abertos citam patrimônio, almoxarifado e frota.
 <strong>Não construir contabilidade</strong> — é onde os incumbentes e as regras de TCE mandam. Integre com o sistema
 contábil que a prefeitura já tem.</p>
-<p><strong>Módulos</strong>
-1. Patrimônio: tombamento, ficha do bem, depreciação, inventário por leitor/planilha, termo de responsabilidade, transferência, baixa e alienação.
-2. Almoxarifado: requisição, autorização, entrada/saída, estoque mínimo, curva ABC, inventário.
-3. Compras e licitações: demanda, pesquisa de preço, edital/dispensa, ata de registro de preços, contrato, fiscalização, prazos.
-4. Frota: veículos, km, abastecimento, manutenção preventiva, ordens de serviço, multas, motoristas.
-5. GED acoplado: digitalização de processos e contratos com assinatura.
-6. Painéis: custo por secretaria, consumo por unidade, alertas de vencimento.</p>
+<p><strong>Módulos</strong></p>
+<ol>
+<li>Patrimônio: tombamento, ficha do bem, depreciação, inventário por leitor/planilha, termo de responsabilidade, transferência, baixa e alienação.</li>
+<li>Almoxarifado: requisição, autorização, entrada/saída, estoque mínimo, curva ABC, inventário.</li>
+<li>Compras e licitações: demanda, pesquisa de preço, edital/dispensa, ata de registro de preços, contrato, fiscalização, prazos.</li>
+<li>Frota: veículos, km, abastecimento, manutenção preventiva, ordens de serviço, multas, motoristas.</li>
+<li>GED acoplado: digitalização de processos e contratos com assinatura.</li>
+<li>Painéis: custo por secretaria, consumo por unidade, alertas de vencimento.</li>
+</ol>
 <p><strong>Integrações:</strong> sistema contábil (exportação), eSocial (se incluir RH), TCE (prestação de contas).
 <strong>Esforço:</strong> 16–20 semanas (2 devs).
 <strong>Risco:</strong> baixo/médio. <strong>Ticket:</strong> R$ 170–660 mil/ano.</p>
-<h3 id="produto-d-portal-transparencia-protocoloouvidoria-o-mais-rapido-de-vender">Produto D — Portal + Transparência + Protocolo/Ouvidoria (o mais rápido de vender)</h3>
+<h3 id="produto-d-portal-transparencia-protocoloouvidoria-o-mais-rapido-de-vender" class="prod"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>Produto D — Portal + Transparência + Protocolo/Ouvidoria (o mais rápido de vender)</span></h3>
 <p><strong>Por quê:</strong> 62 editais abertos citam protocolo, 18 citam portal da transparência, 8 ouvidoria; Mogi das Cruzes
 paga R$ 64.420 por redesign/manutenção de portal. 1.454 dos 3.636 sites municipais mapeados têm portal de
 transparência — muitos são links quebrados ou de fornecedor antigo. É o produto que gera <strong>atestado</strong> rápido
 e serve de porta de entrada para os outros.</p>
-<p><strong>Módulos</strong>
-1. Site institucional (CMS): notícias, secretarias, serviços, agenda, banners, acessibilidade eMAG/WCAG AA.
-2. Portal da transparência: receitas, despesas, licitações, contratos, aditivos, servidores, diárias, obras, emendas.
-3. Dados abertos: CSV/JSON + API pública documentada.
-4. e-SIC (Lei 12.527) com prazos, recurso e relatório anual.
-5. Ouvidoria: protocolo, anonimato, categorias, prazos, painel de demandas.
-6. Protocolo eletrônico: abertura, autuação, tramitação entre setores, despacho, assinatura, consulta pública.
-7. Busca unificada e acessibilidade (leitor de tela, contraste, teclado).</p>
+<p><strong>Módulos</strong></p>
+<ol>
+<li>Site institucional (CMS): notícias, secretarias, serviços, agenda, banners, acessibilidade eMAG/WCAG AA.</li>
+<li>Portal da transparência: receitas, despesas, licitações, contratos, aditivos, servidores, diárias, obras, emendas.</li>
+<li>Dados abertos: CSV/JSON + API pública documentada.</li>
+<li>e-SIC (Lei 12.527) com prazos, recurso e relatório anual.</li>
+<li>Ouvidoria: protocolo, anonimato, categorias, prazos, painel de demandas.</li>
+<li>Protocolo eletrônico: abertura, autuação, tramitação entre setores, despacho, assinatura, consulta pública.</li>
+<li>Busca unificada e acessibilidade (leitor de tela, contraste, teclado).</li>
+</ol>
 <p><strong>Esforço:</strong> 8–12 semanas (1–2 devs).
 <strong>Risco:</strong> baixo. <strong>Ticket:</strong> R$ 20–70 mil/ano.</p>
-<h3 id="produto-e-opcional-rpps-previdencia-municipal">Produto E (opcional) — RPPS / Previdência municipal</h3>
+<h3 id="produto-e-opcional-rpps-previdencia-municipal" class="prod"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg><span>Produto E (opcional) — RPPS / Previdência municipal</span></h3>
 <p>22 editais abertos em prefeituras; Jussara paga R$ 131.467 para 6,8 mil habitantes.
 Módulos: segurados, tempo de contribuição, arrecadação, benefícios, folha de pagamento do RPPS, censo
 previdenciário, comprovação de vida, relatórios ao MPS.
 <strong>Esforço:</strong> 10–12 semanas. <strong>Risco:</strong> médio (regras previdenciárias mudam). <strong>Ticket:</strong> R$ 60–150 mil/ano.
 Bom como segundo produto de nicho, depois do D.</p>
-<h2 id="4-matriz-de-decisao">4. Matriz de decisão</h2>
-<div class="tabela"><table>
+<h2 id="4-matriz-de-decisao"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span><span>4. Matriz de decisão</span></h2>
+<div class="tbl"><span class="hint">deslize para ver mais →</span><div class="tabela" role="region" tabindex="0" aria-label="Tabela"><table>
 <thead>
 <tr>
 <th>Produto</th>
@@ -379,11 +408,11 @@ Bom como segundo produto de nicho, depois do D.</p>
 <td>opcional</td>
 </tr>
 </tbody>
-</table></div>
+</table></div></div>
 <p>Regra prática: <strong>D + C</strong> cobrem a maior parte dos editais de software que uma prefeitura pequena abre
 (portal, transparência, protocolo, patrimônio, almoxarifado, frota, compras) com um único núcleo, e geram
 atestados que habilitam você em A e B depois.</p>
-<h2 id="5-requisitos-transversais-checklist-de-engenharia">5. Requisitos transversais (checklist de engenharia)</h2>
+<h2 id="5-requisitos-transversais-checklist-de-engenharia"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>5. Requisitos transversais (checklist de engenharia)</span></h2>
 <p><strong>Arquitetura</strong></p>
 <ul>
 <li>Multi-tenant com isolamento lógico por <code>tenant_id</code> + RLS no Postgres.</li>
@@ -422,7 +451,7 @@ atestados que habilitam você em A e B depois.</p>
 <li><strong>Atestado de capacidade técnica</strong>: só se obtém executando. Primeiro contrato pode ser de valor baixo
   (dispensa por valor) ou subcontratação com atestado do parceiro — planeje isso antes de disputar A/B.</li>
 </ul>
-<h2 id="6-plano-de-acao-180-dias">6. Plano de ação (180 dias)</h2>
+<h2 id="6-plano-de-acao-180-dias"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span>6. Plano de ação (180 dias)</span></h2>
 <h3 id="fase-0-validacao-e-habilitacao-semanas-13">Fase 0 — validação e habilitação (semanas 1–3)</h3>
 <ol>
 <li>Baixar e ler os 5 TRs mais próximos do produto escolhido; extrair requisitos em checklist.</li>
@@ -458,8 +487,8 @@ atestados que habilitam você em A e B depois.</p>
 <h3 id="fase-4-decisao-sobre-b-saude">Fase 4 — decisão sobre B (saúde)</h3>
 <p>Só entra com sócio clínico ou parceria de licenciamento. Sem isso, o custo de certificação e suporte
 consome a margem.</p>
-<h2 id="7-equipe-e-custo-de-construcao">7. Equipe e custo de construção</h2>
-<div class="tabela"><table>
+<h2 id="7-equipe-e-custo-de-construcao"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span>7. Equipe e custo de construção</span></h2>
+<div class="tbl"><span class="hint">deslize para ver mais →</span><div class="tabela" role="region" tabindex="0" aria-label="Tabela"><table>
 <thead>
 <tr>
 <th>Fase</th>
@@ -488,9 +517,9 @@ consome a margem.</p>
 <td>consultor é obrigatório</td>
 </tr>
 </tbody>
-</table></div>
+</table></div></div>
 <p>Sem equipe: escolha <strong>D</strong> e venda; cada contrato financia o próximo módulo.</p>
-<h2 id="8-riscos-que-decidem-o-jogo">8. Riscos que decidem o jogo</h2>
+<h2 id="8-riscos-que-decidem-o-jogo"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span>8. Riscos que decidem o jogo</span></h2>
 <ol>
 <li><strong>Migração de dados do incumbente</strong> — o fornecedor anterior não entrega base organizada. Reserve 30% do prazo de implantação para isso e cobre por escopo.</li>
 <li><strong>Atestado</strong> — sem ele você é inabilitado. Resolva com contrato pequeno/piloto antes de disputar ticket alto.</li>
@@ -498,8 +527,8 @@ consome a margem.</p>
 <li><strong>Concorrência instalada</strong> (Betha, IPM, Fiorilli, Atende) — eles têm contrato antigo e relação política. Entre por módulo que eles cobram caro ou entregam mal (transparência, protocolo, frota).</li>
 <li><strong>Lock-in regulatório</strong> — contabilidade e folha têm regras de TCE; não reinvente. Integre.</li>
 </ol>
-<h2 id="9-precos-observados-nos-editais-analisados">9. Preços observados nos editais analisados</h2>
-<div class="tabela"><table>
+<h2 id="9-precos-observados-nos-editais-analisados"><span class="sec-ico"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span>9. Preços observados nos editais analisados</span></h2>
+<div class="tbl"><span class="hint">deslize para ver mais →</span><div class="tabela" role="region" tabindex="0" aria-label="Tabela"><table>
 <thead>
 <tr>
 <th>Cidade</th>
@@ -564,14 +593,23 @@ consome a margem.</p>
 <td style="text-align: right;">R$ 2.074.079</td>
 </tr>
 </tbody>
-</table></div>
+</table></div></div>
 <p>Faixas práticas para proposta: pequeno porte (&lt;20 mil hab.) R$ 1,50–4,00 por habitante/ano por módulo;
-médio (20–100 mil) R$ 1,00–2,50; grande (&gt;100 mil) contrato por escopo, não por habitante.</p>
-  </article>
+médio (20–100 mil) R$ 1,00–2,50; grande (&gt;100 mil) contrato por escopo, não por habitante.</p></article>
   <footer>
-    Fontes: 38 editais abertos no PNCP (PDFs baixados), 3.636 sites municipais e contagem de editais por tema.
-    Documento de trabalho — valores estimados, confira o termo de referência antes de decidir.
+    <p><strong>Fontes:</strong> 38 editais abertos no PNCP (PDFs baixados e lidos), 3.636 sites municipais
+    e contagem de editais por tema. Documento de trabalho — confira o termo de referência antes de decidir.</p>
   </footer>
 </main>
+<button class="top" aria-label="Voltar ao topo"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></button>
+
+<script>
+const bar=document.querySelector('.progress'),top=document.querySelector('.top');
+const tick=()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+ bar.style.width=(p*100)+'%';top.classList.toggle('show',h.scrollTop>600)};
+addEventListener('scroll',tick,{passive:true});tick();
+top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+</script>
+
 </body>
 </html>
